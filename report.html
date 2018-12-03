@@ -11997,14 +11997,14 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Minimum price of the data</span>
-<span class="n">minimum_price</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Maximum price of the data</span>
-<span class="n">maximum_price</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Mean price of the data</span>
 <span class="n">mean_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
@@ -12080,9 +12080,9 @@ Standard deviation of prices: $165171.13154429474
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li>An increase in <code>'RM'</code> will lead to an increase in <code>'MEDV'</code>.  </li>
-<li>An increase in <code>'LSTAT'</code> will lead to a decrease in <code>'MEDV'</code>.  </li>
-<li>An increase in <code>'PTRATIO'</code> will lead to a decrease in <code>'MEDV'</code>.</li>
+<li>An increase in <code>'RM'</code> will lead to an increase in <code>'MEDV'</code>; for example, a home that has an <code>'RM'</code> value of 7 is worth more than a home that has an <code>'RM'</code> value of 6.  </li>
+<li>An increase in <code>'LSTAT'</code> will lead to a decrease in <code>'MEDV'</code>; for example, a neighborhood that has a <code>'LSTAT'</code> value of 15 has higher home prices than a neighborhood that has a <code>'LSTAT'</code> value of 20.  </li>
+<li>An increase in <code>'PTRATIO'</code> will lead to a decrease in <code>'MEDV'</code>; for example, a neighborhood that has a <code>'PTRATIO'</code> value of 10 has higher home prices than a neighborhood that has a <code>'PTRATIO'</code> value of 15.</li>
 </ul>
 
 </div>
@@ -12234,6 +12234,7 @@ Standard deviation of prices: $165171.13154429474
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong><br>
 I think the model successfully captured the variation of the target variables because the R^2 is 0.923. It means that 92.3% of the variance in target variable is explained by the features.</p>
+<p>Since the R2 score can be calculated by the formula $R^2 = 1 - \frac{SS_{residual}}{SS_{total}}$, the R2 score equals to 0.923 means the value of $\frac{SS_{residual}}{SS_{total}}$, which compares the unexplained variance with the total variance, is very small. In other words, unexplained variance is small; hence, 0.923 means that 92.3% of the variance in target variable is explained by the features, and it is a good and acceptable score.</p>
 
 </div>
 </div>
@@ -12311,7 +12312,7 @@ I think the model successfully captured the variation of the target variables be
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong><br>
-If you train and test on the same data, you would not know how the model performances on new data; moreover, the model tends to overfit. In order to avoid overfitting, it is appropriate to split data into training and testing. Use training data to train a model, and use testing data to test the performance of the model.</p>
+If you train and test on the same data, you would not know how the model performances on new data; moreover, the model tends to overfit. In order to protect against overfitting, it is appropriate to split data into training and testing. Use training data to train a model, and use testing data to test the performance of the model.</p>
 
 </div>
 </div>
@@ -12587,7 +12588,7 @@ Suppose there are a bunch of parameters, and we do not know which is best for th
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong><br>
 k-fold cross-validation is used to validate the model through generating different combinations of the data that you already have.</p>
-<p>k-fold divides the data into k group of samples, called folds, of equal sizes. When fitting a model, we use k-1 folds to train the model, and use the left fold to validate the fitted model.</p>
+<p>k-fold divides the data into k group of samples, called folds, of equal sizes. When fitting a model, we use k-1 folds to train the model, and use the left fold to validate the fitted model. Repeat this process for k times with each fold is used once as the validation data. The k results can be averaged to produce a single estimation.</p>
 <p>k-fold cross-validation can prevent overfitting; hence, when using k-fold cross-validation in grid search, we can prevent overfitting in each combination of hyperparameters to find out the best model.</p>
 
 </div>
